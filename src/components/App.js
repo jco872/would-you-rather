@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import Dashboard from './Dashboard'
@@ -42,14 +42,17 @@ class App extends Component {
           <LoadingBar />
           <div className='container'>
             <Nav loggedInUser={this.props.loggedInUser} logout={this.logout} />
-                <div>                  
-                  <PrivateRoute exact path="/" component={Dashboard} 
-                                user={this.props.loggedInUser} />
-                  <Route exact path='/questions/:id' component={PollPage} />                                                
-                  <PrivateRoute exact path='/add' component={NewQuestion} user={this.props.loggedInUser} />
-                  <PrivateRoute exact path='/leaderboard' component={Leaderboard} user={this.props.loggedInUser} />                 
-                  <Route exact path='/login' component={Login} />
-                  <Route exact path='/unknown' component={Unknown} />                 
+                <div>   
+                  <Switch>
+                    <PrivateRoute exact path="/" component={Dashboard} 
+                                  user={this.props.loggedInUser} />
+                    <Route exact path='/questions/:id' component={PollPage} />                                                
+                    <PrivateRoute exact path='/add' component={NewQuestion} user={this.props.loggedInUser} />
+                    <PrivateRoute exact path='/leaderboard' component={Leaderboard} user={this.props.loggedInUser} />                 
+                    <Route exact path='/login' component={Login} />
+                    <Route exact path='/unknown' component={Unknown} />
+                    <Route path="*"><Login /></Route>            
+                  </Switch>               
                 </div>               
           </div>
         </Fragment>  
