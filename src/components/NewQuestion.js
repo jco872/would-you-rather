@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { handleAddQuestion } from '../actions/questions'
 import { Redirect } from 'react-router-dom'
 
-class NewTweet extends Component {
+class NewQuestion extends Component {
   state = {
     optionOneText: '',
     optionTwoText: '',
@@ -94,4 +94,4 @@ class NewTweet extends Component {
   }
 }
 
-export default connect()(NewTweet)
+export default connect()(NewQuestion)

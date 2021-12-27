@@ -7,8 +7,9 @@ import LoadingBar from 'react-redux-loading'
 import Login from './Login'
 import NewQuestion from './NewQuestion'
 import PollPage from './PollPage'
+import Leaderboard from './Leaderboard'
 import Nav from './Nav'
-import { showLoading, hideLoading } from 'react-redux-loading'
+import { showLoading } from 'react-redux-loading'
 import { PrivateRoute } from './PrivateRoute';
 
 class App extends Component {
@@ -45,11 +46,11 @@ class App extends Component {
                                 user={this.props.loggedInUser} />
                   <PrivateRoute path='/questions/:id' component={PollPage} user={this.props.loggedInUser} />
                   <PrivateRoute path='/add' component={NewQuestion} user={this.props.loggedInUser} />
-                  <PrivateRoute path='/leader' component={NewQuestion} user={this.props.loggedInUser} />
+                  <PrivateRoute path='/leaderboard' component={Leaderboard} user={this.props.loggedInUser} />
                   <Route path='/login' component={Login} />                  
                 </div>
           </div>
-        </Fragment>
+        </Fragment>  
       </Router>
     )
   }

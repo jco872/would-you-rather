@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { formatQuestion, formatDate } from '../utils/helpers'
+import { formatQuestion } from '../utils/helpers'
 import { withRouter } from 'react-router-dom'
 
 class DashboardQuestion extends Component {
@@ -12,11 +12,11 @@ class DashboardQuestion extends Component {
     const { question } = this.props
 
     if (question === null) {
-      return <p>This Tweet doesn't existd</p>
+      return <p>This Question doesn't existd</p>
     }
 
     const {
-      name, avatar, timestamp, text, hasLiked, likes, replies, id, parent
+      name, avatar, text, id
     } = question
 
     return (

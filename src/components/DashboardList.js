@@ -1,12 +1,8 @@
 import React, { Component } from 'react'
-import { connect, useStore } from 'react-redux'
+import { connect } from 'react-redux'
 import DashboardQuestion from './DashboardQuestion'
 
 class DashboardList extends Component {
-  constructor() {
-    super();
-  }
-
   render() {
     return (
       <ul className='dashboard-list'>

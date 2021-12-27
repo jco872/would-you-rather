@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { formatQuestion, formatDate } from '../utils/helpers'
+import { formatQuestion } from '../utils/helpers'
 import { handleSaveQuestionAnswer } from '../actions/questions'
 import { withRouter } from 'react-router-dom'
-import { Redirect } from 'react-router-dom'
 
 class TakePoll extends Component {
   constructor() {
@@ -40,7 +39,7 @@ class TakePoll extends Component {
     }
 
     const {
-      name, avatar, timestamp, text, hasLiked, likes, replies, id, parent
+      name, avatar
     } = formattedquestion
 
     return (

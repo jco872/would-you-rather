@@ -7,12 +7,10 @@ let users = {
   jeffcounts: {
     id: 'jeffcounts',
     name: 'Jeff Counts',
-    avatarURL: goat,
-    answers: {
-      "loxhs1bqm25b708cmbf3g": 'optionOne'
-    },
+    avatarURL: reindeer,
+    answers: {},
     questions: []
-  },  
+  },
   sarahedo: {
     id: 'sarahedo',
     name: 'Sarah Edo',
@@ -35,16 +33,12 @@ let users = {
     },
     questions: ['loxhs1bqm25b708cmbf3g', 'vthrdm985a262al8qx3do'],
   },
-  johndoe: {
-    id: 'johndoe',
-    name: 'John Doe',
-    avatarURL: reindeer,
-    answers: {
-      "xj352vofupe1dqz9emx13r": 'optionOne',
-      "vthrdm985a262al8qx3do": 'optionTwo',
-      "6ni6ok3ym7mf1p33lnez": 'optionTwo'
-    },
-    questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
+  maxcounts: {
+    id: 'maxcounts',
+    name: 'Max Counts',
+    avatarURL: goat,
+    answers: {},
+    questions: [],
   }
 }
 
@@ -64,14 +58,14 @@ let questions = {
   },
   "6ni6ok3ym7mf1p33lnez": {
     id: '6ni6ok3ym7mf1p33lnez',
-    author: 'johndoe',
+    author: 'jeffcounts',
     timestamp: 1468479767190,
     optionOne: {
       votes: [],
       text: 'become a superhero',
     },
     optionTwo: {
-      votes: ['johndoe', 'sarahedo'],
+      votes: ['sarahedo'],
       text: 'become a supervillain'
     }
   },
@@ -110,21 +104,21 @@ let questions = {
       text: 'find $50 yourself',
     },
     optionTwo: {
-      votes: ['johndoe'],
+      votes: [],
       text: 'have your best friend find $500'
     }
   },
   "xj352vofupe1dqz9emx13r": {
     id: 'xj352vofupe1dqz9emx13r',
-    author: 'johndoe',
+    author: 'tylermcginnis',
     timestamp: 1493579767190,
     optionOne: {
-      votes: ['johndoe'],
+      votes: [],
       text: 'write JavaScript',
     },
     optionTwo: {
-      votes: ['tylermcginnis'],
-      text: 'write Swift'
+      votes: [],
+      text: 'write Scratch'
     }
   },
 }
@@ -180,7 +174,9 @@ export function _saveQuestion (question) {
         }
       }
 
-      res(formattedQuestion)
+      formattedQuestion.users = users;
+
+       res(formattedQuestion)
     }, 1000)
   })
 }

@@ -1,14 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { handleAddQuestion } from '../actions/questions'
-import { Redirect } from 'react-router-dom'
 import { setAuthedUser } from '../actions/authedUser'
 
 class Login extends Component {
-  constructor() {
-    super();    
-  }
-
   componentDidMount() {
     this.props.dispatch(setAuthedUser(null));
   }  
@@ -29,8 +23,7 @@ class Login extends Component {
     e.preventDefault()
 
     const { user } = this.state
-    const { dispatch, id } = this.props
-
+   
     this.props.dispatch(setAuthedUser(user));
 
     this.setState(() => ({
@@ -53,10 +46,10 @@ class Login extends Component {
 
         <select name="user" onChange={this.handleChange}>
           <option value="">- Select a User -</option> 
-          <option value="jeffcounts">Jeff Counts</option>          
+          <option value="jeffcounts">Jeff Counts</option>
+          <option value="maxcounts">Max Counts</option>
           <option value="tylermcginnis">Tyler McGinnis</option>
-          <option value="sarahedo">Sarah Edo</option>
-          <option value="johndoe">John Doe</option>         
+          <option value="sarahedo">Sarah Edo</option>          
         </select>
         
           <button

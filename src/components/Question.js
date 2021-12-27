@@ -12,7 +12,7 @@ class Question extends Component {
     const { question } = this.props
 
     if (question === null) {
-      return <p>This Tweet doesn't existd</p>
+      return <p>This Question doesn't existd</p>
     }
 
     const {

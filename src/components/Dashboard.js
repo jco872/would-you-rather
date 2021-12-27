@@ -1,12 +1,8 @@
 import React, { Component } from 'react'
-import { connect, useStore } from 'react-redux'
+import { connect } from 'react-redux'
 import DashboardList from './DashboardList'
 
 class Dashboard extends Component {
-  constructor() {
-    super();
-  }
-
   state = {
     questionCategory: "",
     unansweredStyle: "question-nav-link question-nav-link-active",
@@ -38,8 +34,8 @@ class Dashboard extends Component {
     return (
       <div>
         <div className="question-nav">
-          <a class={this.state.unansweredStyle} id="unanswered" href="" onClick={this.refreshQuestions}>Unanswered Questions</a>&nbsp;|&nbsp; 
-          <a class={this.state.answeredStyle} onClick={this.refreshQuestions} id="answered" href="">Answered Questions</a>
+          <a className={this.state.unansweredStyle} id="unanswered" href="" onClick={this.refreshQuestions}>Unanswered Questions</a>&nbsp;|&nbsp; 
+          <a className={this.state.answeredStyle} onClick={this.refreshQuestions} id="answered" href="">Answered Questions</a>
         </div>
         
         <DashboardList questionCategory={this.state.questionCategory} />

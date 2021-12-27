@@ -4,10 +4,6 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
 class Nav extends Component {
-  constructor() {
-    super();
-  }
-
   render() {
     return (
       <nav className='nav'>
@@ -23,7 +19,7 @@ class Nav extends Component {
             </NavLink>
           </li>
           <li>
-            <NavLink to='/leader' activeClassName='active'>
+            <NavLink to='/leaderboard' activeClassName='active'>
               Leaderboard
             </NavLink>
           </li>    
@@ -32,7 +28,7 @@ class Nav extends Component {
               <Fragment>
                 <span style={{verticalAlign: 'top'}}>Hello, {this.props.loggedInUser}  </span>     
 
-                <img style={{marginTop: -15, marginLeft: 5}} width="50px" src={this.props.avatar} />          
+                <img alt={`Avatar of ${this.props.authedUser}`} style={{marginTop: -15, marginLeft: 5}} width="50px" src={this.props.avatar} />          
                </Fragment>
             }
 
