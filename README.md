@@ -1,21 +1,19 @@
-# Chirper Project
+# Would You Rather Project
 
-This repo is a code-along with the first project in the [React Nanodegree program](https://www.udacity.com/course/react-nanodegree--nd019).
+This repo contains the code for the "Would You Rather" project for the React Developer Nanodegree program.
 
-Most of the commits in this repository correspond to videos in the program.
+This React application lets users login and view, answer, and create "would you rather" questions. 
 
 ## Project Setup
 
-* clone the Project - `git@github.com:udacity/reactnd-chirper-app.git`
+* clone the Project - `https://github.com/jco872/would-you-rather.git`
 * install the dependencies - `npm install`
 
-## Contributing
+**Installation**
 
-Because this is a code-along project and the commits correspond to specific videos in the program, we will not be accepting pull requests.
+* install all project dependencies with `npm install`
+* start the development server with `npm start`
 
-If you feel like there's a major problem, please open an issue to discuss the problem and potential resolution.
+**Contributing**
 
-## License
-
-MIT
-"# wouldyourather" 
+This repository was developed by Jeffrey Counts for the Udacity React Developer Nanodegree program.

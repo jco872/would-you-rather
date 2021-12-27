@@ -67,7 +67,7 @@ class ViewPoll extends Component {
             
             <div style={{fontWeight: 'bold', marginTop: 19, fontSize: 19}}>Results:</div>
 
-            <div class={topClass}>
+            <div className={topClass}>
               <p>Would you rather {this.props.optionOne.text}?</p>
 
               <div>
@@ -77,13 +77,13 @@ class ViewPoll extends Component {
                   </div>
                 </div>
                 <div style={{fontWeight: 'bold', textAlign: 'center'}}>{this.props.optionOne.votes} out of {this.props.totalVotes} votes</div>
-                <div class="your-choice">
+                <div className="your-choice">
                   
                   </div>
               </div>
             </div>
 
-            <div class={bottomClass}>
+            <div className={bottomClass}>
               <p>Would you rather {this.props.optionTwo.text}?</p>
 
               <div>
@@ -93,7 +93,7 @@ class ViewPoll extends Component {
                   </div>
                 </div>
                 <div style={{fontWeight: 'bold', textAlign: 'center'}}>{this.props.optionTwo.votes} out of {this.props.totalVotes} votes</div>
-                <div class="your-choice">
+                <div className="your-choice">
                   
                 </div>
               </div>

@@ -1,20 +1,12 @@
 import dog from '../avatars/dog.jpg';
 import panda from '../avatars/panda.jpg';
-import reindeer from '../avatars/reindeer.jpg';
 import goat from '../avatars/goat.jpg';
 
 let users = {
-  jeffcounts: {
-    id: 'jeffcounts',
-    name: 'Jeff Counts',
-    avatarURL: reindeer,
-    answers: {},
-    questions: []
-  },
   sarahedo: {
     id: 'sarahedo',
     name: 'Sarah Edo',
-    avatarURL: dog,
+    avatarURL: panda,
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -26,19 +18,23 @@ let users = {
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    avatarURL: panda,
+    avatarURL: dog,
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
     },
     questions: ['loxhs1bqm25b708cmbf3g', 'vthrdm985a262al8qx3do'],
   },
-  maxcounts: {
-    id: 'maxcounts',
-    name: 'Max Counts',
+  johndoe: { 
+    id: 'johndoe',
+    name: 'John Doe',
     avatarURL: goat,
-    answers: {},
-    questions: [],
+    answers: {
+      "xj352vofupe1dqz9emx13r": 'optionOne',
+      "vthrdm985a262al8qx3do": 'optionTwo',
+      "6ni6ok3ym7mf1p33lnez": 'optionTwo'
+    },
+    questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
   }
 }
 
@@ -58,14 +54,14 @@ let questions = {
   },
   "6ni6ok3ym7mf1p33lnez": {
     id: '6ni6ok3ym7mf1p33lnez',
-    author: 'jeffcounts',
+    author: 'johndoe',
     timestamp: 1468479767190,
     optionOne: {
       votes: [],
       text: 'become a superhero',
     },
     optionTwo: {
-      votes: ['sarahedo'],
+      votes: ['johndoe', 'sarahedo'],
       text: 'become a supervillain'
     }
   },
@@ -87,7 +83,7 @@ let questions = {
     author: 'tylermcginnis',
     timestamp: 1482579767190,
     optionOne: {
-      votes: ['jeffcounts'],
+      votes: [],
       text: 'be a front-end developer',
     },
     optionTwo: {
@@ -100,25 +96,25 @@ let questions = {
     author: 'tylermcginnis',
     timestamp: 1489579767190,
     optionOne: {
-      votes: ['tylermcginnis', 'sarahedo'],
+      votes: ['tylermcginnis'],
       text: 'find $50 yourself',
     },
     optionTwo: {
-      votes: [],
+      votes: ['johndoe'],
       text: 'have your best friend find $500'
     }
   },
   "xj352vofupe1dqz9emx13r": {
     id: 'xj352vofupe1dqz9emx13r',
-    author: 'tylermcginnis',
+    author: 'johndoe',
     timestamp: 1493579767190,
     optionOne: {
-      votes: [],
+      votes: ['johndoe'],
       text: 'write JavaScript',
     },
     optionTwo: {
-      votes: [],
-      text: 'write Scratch'
+      votes: ['tylermcginnis'],
+      text: 'write Swift'
     }
   },
 }

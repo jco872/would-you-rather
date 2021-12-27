@@ -1,13 +1,14 @@
 import React, { Component, Fragment } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import Dashboard from './Dashboard'
 import LoadingBar from 'react-redux-loading'
-import Login from './Login'
 import NewQuestion from './NewQuestion'
 import PollPage from './PollPage'
 import Leaderboard from './Leaderboard'
+import Login from './Login'
+import Unknown from './Unknown'
 import Nav from './Nav'
 import { showLoading } from 'react-redux-loading'
 import { PrivateRoute } from './PrivateRoute';
@@ -36,19 +37,20 @@ class App extends Component {
 
   render() {
     return (      
-      <Router>
+      <Router>        
         <Fragment>
           <LoadingBar />
           <div className='container'>
             <Nav loggedInUser={this.props.loggedInUser} logout={this.logout} />
-                <div>
+                <div>                  
                   <PrivateRoute exact path="/" component={Dashboard} 
                                 user={this.props.loggedInUser} />
-                  <PrivateRoute path='/questions/:id' component={PollPage} user={this.props.loggedInUser} />
-                  <PrivateRoute path='/add' component={NewQuestion} user={this.props.loggedInUser} />
-                  <PrivateRoute path='/leaderboard' component={Leaderboard} user={this.props.loggedInUser} />
-                  <Route path='/login' component={Login} />                  
-                </div>
+                  <Route exact path='/questions/:id' component={PollPage} />                                                
+                  <PrivateRoute exact path='/add' component={NewQuestion} user={this.props.loggedInUser} />
+                  <PrivateRoute exact path='/leaderboard' component={Leaderboard} user={this.props.loggedInUser} />                 
+                  <Route exact path='/login' component={Login} />
+                  <Route exact path='/unknown' component={Unknown} />                 
+                </div>               
           </div>
         </Fragment>  
       </Router>

@@ -6,9 +6,10 @@ class Login extends Component {
   componentDidMount() {
     this.props.dispatch(setAuthedUser(null));
   }  
-  
+ 
   state = {
     user: '',
+    id: this.props.location !== undefined ? this.props.location.id : null
   }
 
   handleChange = (e) => {
@@ -29,12 +30,16 @@ class Login extends Component {
     this.setState(() => ({
       user: '',
     }), () => {
-      this.props.history.push('/');
+      if (this.state.id !== undefined) {
+        this.props.history.push(`questions/${this.state.id}`);
+      } else {
+        this.props.history.push('/');
+      }
     })
   }
 
   render() {
-    const { user } = this.state
+    const { user } = this.state   
 
     return (
       <div style={{marginTop: 20}}>
@@ -44,13 +49,12 @@ class Login extends Component {
         
         <form className='login-form' onSubmit={this.handleSubmit}>
 
-        <select name="user" onChange={this.handleChange}>
-          <option value="">- Select a User -</option> 
-          <option value="jeffcounts">Jeff Counts</option>
-          <option value="maxcounts">Max Counts</option>
-          <option value="tylermcginnis">Tyler McGinnis</option>
-          <option value="sarahedo">Sarah Edo</option>          
-        </select>
+          <select name="user" onChange={this.handleChange}>
+            <option value="">- Select a User -</option>
+            <option value="tylermcginnis">Tyler McGinnis</option>                         
+            <option value="sarahedo">Sara Hedo</option>       
+            <option value="johndoe">John Doe</option>
+          </select>
         
           <button
              className='submit-button'
