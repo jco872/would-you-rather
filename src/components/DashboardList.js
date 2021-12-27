@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect, useStore } from 'react-redux'
-import Question from './Question'
+import DashboardQuestion from './DashboardQuestion'
 
 class DashboardList extends Component {
   constructor() {
@@ -12,7 +12,7 @@ class DashboardList extends Component {
       <ul className='dashboard-list'>
         {this.props.questionIds && this.props.questionIds.map((id) => (
           <li key={id}>
-            <Question id={id}/>
+            <DashboardQuestion id={id} />
           </li>
         ))}
       </ul>
@@ -20,17 +20,10 @@ class DashboardList extends Component {
   }
 }
 
-function mapStateToProps (state, ownProps, authedUser) {
-  console.log("authedUser: ", state.authedUser);
-
-  
-  let questionIds;
+function mapStateToProps (state, ownProps) { 
   let filteredQuestionIds;
   let allKeys = Object.keys(state.questions);
   let { questions } = state;
-
-  console.log("first one: ", questions[allKeys[0]].optionOne.votes.length);
-  console.log("ownProps: ", ownProps);
 
   if (ownProps.questionCategory === "answered") {
     filteredQuestionIds = allKeys.filter(id => (questions[id].optionOne.votes.includes(state.authedUser) || questions[id].optionTwo.votes.includes(state.authedUser)))
@@ -39,7 +32,8 @@ function mapStateToProps (state, ownProps, authedUser) {
   }
 
   return {
-    questionIds: filteredQuestionIds.sort((a,b) => state.questions[b].timestamp - state.questions[a].timestamp)
+    questionIds: filteredQuestionIds.sort((a,b) => state.questions[b].timestamp - state.questions[a].timestamp),
+    questionType: ownProps.questionCategory
   }
 }
 

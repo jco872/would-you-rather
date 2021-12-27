@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { formatQuestion, formatDate } from '../utils/helpers'
 import { withRouter } from 'react-router-dom'
 
-class Question extends Component {
+class DashboardQuestion extends Component {
   toParent = (e, id) => {
     e.preventDefault()
     this.props.history.push(`/questions/${id}`)
@@ -35,8 +35,7 @@ class Question extends Component {
             <p>...{text.substring(0, 15)}...</p>
           </div>
           <div className='question-icons'>
-            <button style={{width: 95, marginTop: 5, padding: 8}} onClick={() => this.props.history.push(`/questions/${id}`) }>View Poll 3</button>
-       
+            <button style={{width: 95, marginTop: 5, padding: 8}} onClick={() => this.props.history.push(`/questions/${id}`) }>View Poll</button>       
           </div>
         </div>
       </div>
@@ -56,4 +55,4 @@ function mapStateToProps ({authedUser, users, questions}, { id }) {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(Question))
+export default withRouter(connect(mapStateToProps)(DashboardQuestion))

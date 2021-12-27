@@ -27,20 +27,22 @@ class Nav extends Component {
               Leaderboard
             </NavLink>
           </li>    
-          <li style={{verticalAlign: 'top'}}>
+          <li style={{verticalAlign: 'top', paddingLeft: 50, paddingRight: 50 }}>
             {this.props.loggedInUser && 
               <Fragment>
                 <span style={{verticalAlign: 'top'}}>Hello, {this.props.loggedInUser}  </span>     
 
-                <img style={{marginTop: -15}} width="50px" src={this.props.avatar} />          
+                <img style={{marginTop: -15, marginLeft: 5}} width="50px" src={this.props.avatar} />          
                </Fragment>
             }
 
           </li>
           <li>
+            {this.props.authedUser &&
             <NavLink to='/login' activeClassName='active'>
               Logout
             </NavLink>
+          }
           </li>
         </ul>
       </nav>

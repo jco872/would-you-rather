@@ -6,7 +6,7 @@ import Dashboard from './Dashboard'
 import LoadingBar from 'react-redux-loading'
 import Login from './Login'
 import NewQuestion from './NewQuestion'
-import QuestionPage from './QuestionPage'
+import PollPage from './PollPage'
 import Nav from './Nav'
 import { showLoading, hideLoading } from 'react-redux-loading'
 import { PrivateRoute } from './PrivateRoute';
@@ -30,10 +30,7 @@ class App extends Component {
   }
 
   refreshQuestions = (e) => {
-    e.preventDefault();
-
-    // access to e.target here
-    console.log(e.target.id);
+    e.preventDefault();    
 }
 
   render() {
@@ -46,7 +43,7 @@ class App extends Component {
                 <div>
                   <PrivateRoute exact path="/" component={Dashboard} 
                                 user={this.props.loggedInUser} />
-                  <PrivateRoute path='/question/:id' component={QuestionPage} user={this.props.loggedInUser} />
+                  <PrivateRoute path='/questions/:id' component={PollPage} user={this.props.loggedInUser} />
                   <PrivateRoute path='/add' component={NewQuestion} user={this.props.loggedInUser} />
                   <PrivateRoute path='/leader' component={NewQuestion} user={this.props.loggedInUser} />
                   <Route path='/login' component={Login} />                  
@@ -61,7 +58,7 @@ class App extends Component {
 function mapStateToProps ({ authedUser, users, questions }) {
   let loggedInUser = "";
 
-  if (authedUser && users[authedUser]) {
+   if (authedUser && users[authedUser]) {
     loggedInUser = users[authedUser].name;
   }
 

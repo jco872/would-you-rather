@@ -1,30 +1,47 @@
-import { saveLikeToggle, saveQuestion } from '../utils/api'
+import { saveQuestion, saveQuestionAnswer } from '../utils/api'
 import { showLoading, hideLoading } from 'react-redux-loading'
+import { handleInitialData } from '../actions/shared'
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const TOGGLE_TWEET = 'TOGGLE_TWEET'
 export const ADD_QUESTION = 'ADD_QUESTION'
 
-function addQuestion (tweet) {
+function addQuestion (question) {
   return {
     type: ADD_QUESTION,
-    tweet,
+    question,
   }
 }
 
-export function handleAddQuestion (text, replyingTo) {
+export function handleAddQuestion (optionOneText, optionTwoText) {
   return (dispatch, getState) => {
     const { authedUser } = getState()
 
     dispatch(showLoading())
 
     return saveQuestion({
-      text,
-      author: authedUser,
-      replyingTo
+      optionOneText,
+      optionTwoText,
+      author: authedUser
     })
       .then((question) => dispatch(addQuestion(question)))
       .then(() => dispatch(hideLoading()))
+  }
+}
+
+export function handleSaveQuestionAnswer (qid, answer) {
+  return (dispatch, getState) => {
+    const { authedUser } = getState()
+
+    dispatch(showLoading())
+
+    return saveQuestionAnswer({
+      authedUser,
+      qid,
+      answer
+    })
+      .then((question) => dispatch(handleInitialData()))
+      .then(() => dispatch(hideLoading()))      
   }
 }
 

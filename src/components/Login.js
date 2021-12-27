@@ -52,14 +52,15 @@ class Login extends Component {
         <form className='login-form' onSubmit={this.handleSubmit}>
 
         <select name="user" onChange={this.handleChange}>
-          <option selected value="">Select a User</option>
+          <option value="">- Select a User -</option> 
+          <option value="jeffcounts">Jeff Counts</option>          
           <option value="tylermcginnis">Tyler McGinnis</option>
           <option value="sarahedo">Sarah Edo</option>
           <option value="johndoe">John Doe</option>         
         </select>
         
           <button
-            className='btn'
+             className='submit-button'
             type='submit'
             disabled={user === ''}>
               Submit
@@ -70,4 +71,10 @@ class Login extends Component {
   }
 }
 
-export default connect()(Login)
+function mapStateToProps ({ users }) {
+  return {
+    users
+  }
+}
+
+export default connect(mapStateToProps)(Login)

@@ -70,8 +70,13 @@ li {
 
 .avatar {
   height: 100px;
-
   margin: 10px;
+}
+
+.avatar-large {
+  height: 125px;
+  margin: 15px 20px 15px 15px;
+  
 }
 
 .question {
@@ -148,19 +153,18 @@ li {
 
 .login-form {
   margin-top: 20px;
-  width: 100%;
+  width: 400px;
   max-width: 590px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
 }
 
-.textarea {
+.text {
   border-radius: 4px;
   border: 1px solid #dad7d7;
   padding: 10px;
   font-size: 15px;
-  height: 100px;
 }
 
 .question-length {
@@ -171,6 +175,61 @@ li {
 }
 
 .question-nav {
-  width: 328px;
+  width: 368px;
   margin: 0px auto;
+}
+
+.question-nav-link {
+  font-size: 18px;
+}
+
+.question-nav-link-active {
+  color: green;
+}
+
+.my-selection {
+  background-color: #E4F8F6;
+  border: 1px solid #AFC8C5 !important;
+}
+
+.top-result {
+  padding: 0 20px;
+  margin: 20px 0px 10px 0px;  
+  font-weight: bold;
+  border: 1px solid #b4d2ce;
+  width: 260px
+}
+
+.bottom-result {
+  padding: 0 20px;
+  margin: 10px 0px 10px 0px;
+  font-weight: bold;
+  border: 1px solid #b4d2ce;  
+  width: 260px
+}
+
+.my-selection  .your-choice {
+  margin-top: 15px;
+  background-color: #ebc604;
+  margin-left: -20px;
+  color: white;
+  padding: 2px 0px 2px 5px;
+  width: 40%;
+  font-size: 14px;
+  margin-bottom: -16px;
+}
+
+.my-selection  .your-choice:before {
+  content: "Your Choice";
+}
+
+.submit-button {
+  margin-top: 5px;
+  padding: 8px;
+  border: #30a48a;
+  background: #30a48a; 
+  color: white; 
+  width: 100%;
+  cursor: pointer;
+  font-size: 16px
 }

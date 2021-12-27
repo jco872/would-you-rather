@@ -5,61 +5,90 @@ import { Redirect } from 'react-router-dom'
 
 class NewTweet extends Component {
   state = {
-    text: '',
+    optionOneText: '',
+    optionTwoText: '',
     toHome: false, 
   }
-  handleChange = (e) => {
-    const text = e.target.value
+  
+  handleChangOptionOne = (e) => {
+    const optionOneText = e.target.value
 
     this.setState(() => ({
-      text
+      optionOneText
     }))
   }
+
+  handleChangOptionTwo = (e) => {
+    const optionTwoText = e.target.value
+
+    this.setState(() => ({
+      optionTwoText
+    }))
+  }
+
   handleSubmit = (e) => {
     e.preventDefault()
 
-    const { text } = this.state
+    const { optionOneText, optionTwoText } = this.state
     const { dispatch, id } = this.props
 
-    dispatch(handleAddQuestion(text, id))
+    dispatch(handleAddQuestion(optionOneText, optionTwoText))
 
     this.setState(() => ({
-      text: '',
+      optionOneText: '',
+      optionTwoText: '',
       toHome: id ? false : true,
     }))
   }
   render() {
-    const { text, toHome } = this.state
+    const { optionOneText, optionTwoText, toHome } = this.state
 
     if (toHome === true) {
       return <Redirect to='/' />
     }
 
-    const tweetLeft = 280 - text.length
-
     return (
-      <div>
+      <div style={{width: 500, margin: 'auto'}}>
+      
         <h1 className='center'>Create New Question</h1>
-        <form className='new-question' onSubmit={this.handleSubmit}>
-          <textarea
-            placeholder="What's happening?"
-            value={text}
-            onChange={this.handleChange}
-            className='textarea'
-            maxLength={280}
+
+        <p style={{fontWeight: 'bold'}}>
+          Complete the question
+        </p>
+
+        <div style={{marginTop: 20, fontSize: 18 }}>
+          <p style={{fontWeight: 'bold'}}>Would you rather...</p>
+
+          <form className='new-question' onSubmit={this.handleSubmit}>
+          <input
+            placeholder="Enter Option One Text Here"
+            value={optionOneText}
+            onChange={this.handleChangOptionOne}
+            className='text'
           />
-          {tweetLeft <= 100 && (
-            <div className='question-length'>
-              {tweetLeft}
-            </div>
-          )}
-          <button
-            className='btn'
-            type='submit'
-            disabled={text === ''}>
-              Submit
-          </button>
+
+          <div style={{textAlign: 'center', fontWeight: 'bold', margin: 20}}>OR</div>
+
+          <input
+            placeholder="Enter Option Two Text Here"
+            value={optionTwoText}
+            onChange={this.handleChangOptionTwo}
+            className='text'
+          />
+
+          <div style={{marginTop: 14}}>
+            <button
+              className='submit-button'
+              type='submit'
+              disabled={optionOneText === '' || optionTwoText === ''}>
+                Submit
+            </button>
+          </div>
         </form>
+
+        </div>
+        
+        
       </div>
     )
   }

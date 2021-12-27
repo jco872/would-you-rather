@@ -2,7 +2,8 @@ import {
   _getUsers,
   _getQuestions,
   _saveQuestion,
-} from './_DB.js'
+  _saveQuestionAnswer
+} from './_DATA.js'
 
 export function getInitialData () {
   return Promise.all([
@@ -16,4 +17,8 @@ export function getInitialData () {
 
 export function saveQuestion (info) {
   return _saveQuestion(info)
+}
+
+export function saveQuestionAnswer ({ authedUser, qid, answer }) {  
+  return _saveQuestionAnswer ({ authedUser, qid, answer })
 }
