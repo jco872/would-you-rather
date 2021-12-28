@@ -30,17 +30,24 @@ class Login extends Component {
     this.setState(() => ({
       user: '',
     }), () => {
+      const redirectTo = this.props.location.forward;
+
+      console.log('redirectTo: ', redirectTo);
+
       if (this.state.id !== undefined) {
         this.props.history.push(`questions/${this.state.id}`);
-      } else {
+      } else if (redirectTo !== undefined) {
+        this.props.history.push(redirectTo);
+      }
+        else {
         this.props.history.push('/');
       }
     })
   }
 
   render() {
-    const { user } = this.state   
-
+    const { user } = this.state 
+ 
     return (
       <div style={{marginTop: 20}}>
         <h3 className='center'>Welcome to the Would You Rather App!</h3>

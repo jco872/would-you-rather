@@ -7,11 +7,11 @@ This React application lets users login and view, answer, and create "would you 
 ## Project Setup
 
 * clone the Project - `https://github.com/jco872/would-you-rather.git`
-* install the dependencies - `npm install`
+* install the dependencies - `npm install --save --legacy-peer-deps`
 
 **Installation**
 
-* install all project dependencies with `npm install`
+* install all project dependencies with `npm install --save --legacy-peer-deps`
 * start the development server with `npm start`
 
 **Contributing**
